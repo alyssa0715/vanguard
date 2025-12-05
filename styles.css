@@ -1,7 +1,8 @@
-/* CSS BY YOUR NAME */
+/* CSS BY Alyssa Chavez */
 
 /* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* IMPORT "INTER" FROM GOOGLE FONTS*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -65,35 +66,318 @@ table {
 /* GLOBAL STYLES (MOBILE FIRST (SMALL) */
 
 /* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
+html {
+    min-width: 400px;
+    font-family: var(--font);
+}
 
 /* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 30px;
 }
 
+header {
+    position: relative;
+    box-shadow: 0px 2px 10px 6px var(--blue);
+    z-index: 10;
+}
+
+nav {
+    background-color: var(--black);
+    display: flex;
+    padding-bottom: 1rem;
+    min-height: 1.5rem;
+}
+
+nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+    max-height: 0;
+}
+
+nav li {
+    padding: 15px;
+}
+
+nav li a {
+    color: var(--blue);
+    font-family: var(--font);
+    font-weight: bold;
+    display: block;
+    transition: background-color .3s ease-in;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+}
+
+nav li a:hover, nav input:hover {
+    background-color: var(--blue);
+    color: var(--black);
+}
+
+nav h2 {
+    visibility: hidden;
+    height: 1px;
+}
+
+nav #menu {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.5rem;
+    user-select: none;
+}
+
+/* BUILDS THE MIDDLE LILNE OF THE HAMBURGER */
+#menu span {
+    background-color: white;
+    display: block;
+    height: .25rem;
+    position: relative;
+    transition: background-color .3s ease-out;
+    width: 2rem;
+}
+/* BUILDS THE TOP AND BOTTOM LINES OF THE HAMBURGER*/
+#menu span:before, #menu span:after {
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+#menu span:before {
+    top: .75rem;
+}
+#menu span:after {
+    top: -.75rem;
+}
+#menu-toggle {
+  display:none;
+}
+/* ADDS HEIGHT THE NAV WHEN IT'S DROPPED DOWN */
+#menu-toggle:checked ~ ul {
+    max-height: 500px;
+
+}
+/* MAKES THE MIDDLE LINE OF THE HAMBURGER DISAPPEAR */
+#menu-toggle:checked ~ #menu span {
+    background: transparent;
+}
+/* ROTATES THE TOP LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+#menu-toggle:checked ~ #menu span:before {
+    transform: rotate(-45deg);
+}
+/* ROTATES THE BOTTOM LINE OF THE HAMBURGER INTO ONE SIDE OF THE X */
+#menu-toggle:checked ~ #menu span:after {
+    transform: rotate(45deg);
+}
+/* LOCATION OF THE HAMBURGER */
+#menu-toggle:checked ~ #menu:not(.steps) span:before, #menu-toggle:checked ~ #menu:not(.steps) span:after {
+    top: 0;
+}
+
+#menu {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: 1;
+}
+
+
+
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+ .innovation {
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 1rem;
-    overflow: hidden;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--white);
+    font-family: var(--font);
+    padding: 1.5rem;
+}
+
+.innovation div {
+    backdrop-filter: blur(5px);
+}
+
+.innovation h2 {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.innovation p {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1rem;
+}
+
+.innovation a {
+    padding: 15px;
+    text-decoration: none;
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+.innovation a:hover {
+    background-color: var(--red);
+    font-size: 1.1rem;
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
-    content: "";
+@keyframes updown {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 
+ h1::before {
+    content: "";
+    position: absolute;
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
     background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+    animation: updown 6s ease-in-out infinite;
+    top: .5rem;
 }
+
+h1 {
+    position: relative;
+    background-color: var(--black);
+    color: var(--blue);
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 1.5rem;
+    padding-left: 4rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h2 {
+    font-family: var(--font);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 15px;
+}
+
+.Edge p {
+    font-family: var(--font);
+    font-size: 13px;
+    line-height: 2.5ch;
+}
+
+.Offer section {
+    margin: 15px;
+    border-radius: 7px;
+}
+
+.grid section {
+    background-color: var(--blue);
+}
+
+.Offer h3 {
+    color: var(--white);
+    font-weight: bold;
+    margin: 8px;
+    padding: 13px;
+    font-family: var(--font);
+    padding-bottom: 0px;
+}
+
+.Offer p {
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 13px;
+    margin: 8px;
+    padding: 10px;
+    line-height: 2ch;
+}
+
+.Proven .container {
+    background-color: var(--blue);
+    width: 100%;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+}
+
+.Proven h2 {
+    color: var(--white);
+    font-weight: bold;
+    margin: 10px;
+    padding: 13px;
+    font-family: var(--font);
+    padding-bottom: 0px;
+}
+
+.Proven p {
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 13px;
+    margin: 8px;
+    padding: 10px;
+    line-height: 2ch;
+}
+
+.Proven h3 {
+    color: var(--white);
+    font-weight: bold;
+    margin: 10px;
+    padding: 13px;
+    font-family: var(--font);
+    padding-bottom: 0px;
+    font-size: 1.5rem;
+}
+
+table {
+    background-color: var(--black);
+    margin: 0 auto;
+}
+
+th {
+    color: var(--white);
+    padding: 10px;
+    font-family: var(--font);
+}
+
+td {
+    color: var(--white);
+    padding: 10px;
+    text-align: center;
+    font-family: var(--font);
+}
+
+th, td {
+    border: 1px solid var(--charcoal);
+}
+
+table tr:nth-child(3),
+table tr:nth-child(5) {
+    background-color: var(--charcoal);
+}
+
+
 /* THIS ONE IS DONE FOR YOU */
 #bar-chart {
     display: grid;
@@ -113,7 +397,7 @@ table {
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition: height 0.5s;
     height: 0;
 }
 /* THIS ONE IS DONE FOR YOU */
@@ -140,8 +424,114 @@ table {
     animation: stepUp 1s ease-in-out forwards;
 }
 
+.Contact {
+    background-color: var(--black);
+    color: var(--white);
+    padding-top: 10px;
+}
+
+.Contact .container {
+    margin-bottom: 0px;
+}
+
+.Contact p {
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+form label {
+    font-family: var(--font);
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+form input {
+    border: 2px solid var(--blue);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+textarea {
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 2px solid var(--blue);
+}
+
+input[type="submit"] {
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 12px;
+    transition: background-color 0.2s ease-in, font-size 0.2s ease-in;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--red);
+    font-size: 1.1rem;
+}
+
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    line-height: 20px;
+    font-size: 10px;
+}
+
 
 /* MEDIA QUERIES (MEDIUM) */ 
+@media screen and (min-width: 800px) {
+    
+    #menu span {
+        display: none;
+    } 
+    
+    header {
+        display: flex;
+        background-color: var(--black);
+    }
+
+    nav h2 {
+        display: none;
+    }
+    nav ul {
+        overflow: visible;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 2px;
+    }
+
+    nav {
+        width: 75%;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .grid section {
+        margin: 0px;
+    }
+
+   .flex {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+   }
+
+   table {
+    height: 85%;
+   }
 
     #results {
         grid-template-columns: 1fr 1fr;
@@ -156,6 +546,30 @@ table {
     .bar-chart {
         width: 50%;
     }
+}
 
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 1024px) {
+
+    #menu span {
+        display: none;
+    } 
+
+    nav {
+        width: 75%;
+    }
+
+     .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
+
+
+    .flex {
+        display: flex;
+        margin: 50px;
+    }
+
+}
